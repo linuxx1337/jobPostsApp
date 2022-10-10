@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Job post</h1>
+<mat-dialog-content>
+  <mat-divider></mat-divider>
+  <div
+    gdAreas="title open | number close | desc desc | notes notes"
+    gdAreas.xs="title | open | number | close | desc | notes"
+    gdGap="16px"
+    gdRows="auto auto auto auto"
+  >
+    <div gdArea="title">
+      Title: <span>{{ data.title }}</span>
+    </div>
+    <div gdArea="open">
+      Opens: <span>{{ data.openAt | date }}</span>
+    </div>
+    <div gdArea="number">
+      # of interviews: <span>{{ data.numberOfInterviews }}</span>
+    </div>
+    <div gdArea="close">
+      Closes: <span>{{ data.closeAt | date }}</span>
+    </div>
+    <div gdArea="desc">Description: {{ data.description }}</div>
+    <div gdArea="notes">Notes: {{ data.notes }}</div>
+  </div>
+  <mat-divider class="mat-bottom"></mat-divider>
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutAlign="end center">
+  <button mat-raised-button color="primary" [mat-dialog-close]="true">
+    Close
+  </button>
+</mat-dialog-actions>

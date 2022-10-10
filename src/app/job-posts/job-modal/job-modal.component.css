@@ -1,0 +1,17 @@
+span {
+  font-weight: bold;
+}
+
+mat-divider {
+  margin-bottom: 1rem;
+}
+
+mat-divider.mat-bottom {
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+}
+
+button {
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+}

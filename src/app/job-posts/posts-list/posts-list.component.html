@@ -1,0 +1,71 @@
+<div class="main">
+  <div
+    gdAreas="refresh search"
+    gdAreas.xs="refresh | search"
+    gdGap="16px"
+    gdRows="auto auto"
+    fxLayoutAlign="space-between center"
+  >
+    <div gdArea="refresh">
+      <button mat-raised-button color="primary" (click)="refreshPostsTable()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+    <div gdArea="search">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          (keyup)="doFilter($any($event.target).value)"
+          placeholder="Search"
+        />
+        <mat-icon matPrefix class="search">search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+      <td
+        class="title"
+        mat-cell
+        (click)="openModal(data)"
+        *matCellDef="let data"
+      >
+        {{ data.title }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="openAt">
+      <th class="hide" mat-header-cell *matHeaderCellDef mat-sort-header>
+        Opens at
+      </th>
+      <td class="hide" mat-cell *matCellDef="let data">
+        {{ data.openAt | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="closeAt">
+      <th class="hide" mat-header-cell *matHeaderCellDef mat-sort-header>
+        Closes at
+      </th>
+      <td class="hide" mat-cell *matCellDef="let data">
+        {{ data.closeAt | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfInterviews">
+      <th class="mLeft" mat-header-cell *matHeaderCellDef mat-sort-header>
+        # of interviews
+      </th>
+      <td class="mLeft" mat-cell *matCellDef="let data">
+        {{ data.numberOfInterviews }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSize]="10"> </mat-paginator>
+</div>

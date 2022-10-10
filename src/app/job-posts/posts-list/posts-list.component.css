@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+}
+
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px;
+}
+
+.title {
+  cursor: pointer;
+}
+
+.search {
+  padding-right: 0.4rem;
+}
+
+mat-form-field {
+  width: 300px;
+}
+
+@media (max-width: 959px) {
+  .hide {
+    display: none;
+  }
+  table {
+    min-width: 300px;
+  }
+
+  th.mat-header-cell {
+    max-width: 100px;
+  }
+
+  mat-form-field {
+    width: 100vw;
+  }
+  .main {
+    overflow: hidden;
+  }
+}
